@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Anniversary Itinerary ❤️</title>
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;❤️&lt;/text&gt;&lt;/svg&gt;">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  :root {
+    --bg: #fef2f2;
+    --glow: rgba(254, 202, 202, .7);
+    --ink: #1c1117;
+    --muted: #5f4b55;
+    --accent: #dc2626;
+    --accent-2: #db2777;
+    --grad-a: #b91c1c;
+    --grad-b: #db2777;
+    --card: rgba(255, 255, 255, .94);
+    --line: rgba(225, 29, 72, .28);
+    --divider: #fee2e2;
+    --chip-bg: #fee2e2;
+    --chip-ink: #991b1b;
+    --chip-line: #fecaca;
+    --item-bg: #ffffff;
+    --item-line: #e5e7eb;
+    --item-hover: #fef2f2;
+    --btn-bg: rgba(255, 255, 255, .6);
+    --ring: #ffffff;
+    --shadow: 0 10px 25px -5px rgba(225, 29, 72, .2);
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12080d; --glow: rgba(127, 29, 29, .35); --ink: #fbeff3; --muted: #cfb3bf;
+      --accent: #ef4444; --grad-a: #f87171; --grad-b: #f472b6;
+      --card: rgba(28, 12, 20, .94); --line: rgba(244, 63, 94, .4); --divider: #3a2430;
+      --chip-bg: rgba(127, 29, 29, .6); --chip-ink: #fecaca; --chip-line: #7f1d1d;
+      --item-bg: #231620; --item-line: #3f2a36; --item-hover: rgba(127, 29, 29, .3);
+      --btn-bg: rgba(40, 20, 30, .6); --ring: #12080d;
+      --shadow: 0 10px 25px -5px rgba(225, 29, 72, .3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12080d; --glow: rgba(127, 29, 29, .35); --ink: #fbeff3; --muted: #cfb3bf;
+    --accent: #ef4444; --grad-a: #f87171; --grad-b: #f472b6;
+    --card: rgba(28, 12, 20, .94); --line: rgba(244, 63, 94, .4); --divider: #3a2430;
+    --chip-bg: rgba(127, 29, 29, .6); --chip-ink: #fecaca; --chip-line: #7f1d1d;
+    --item-bg: #231620; --item-line: #3f2a36; --item-hover: rgba(127, 29, 29, .3);
+    --btn-bg: rgba(40, 20, 30, .6); --ring: #12080d;
+    --shadow: 0 10px 25px -5px rgba(225, 29, 72, .3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; min-height: 100vh; overflow-x: hidden;
+    font-family: var(--sans); color: var(--ink); background: var(--bg);
+    -webkit-font-smoothing: antialiased; line-height: 1.5;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  ::selection { background: #fca5a5; color: #7f1d1d; }
+  h1, h2, h3, p { margin: 0; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 2px; }
+
+  /* Background */
+  .bg { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .bg::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at top, var(--glow), transparent 60%); }
+  .heart { position: absolute; bottom: 0; opacity: 0; animation: floatUp linear infinite; filter: drop-shadow(0 0 8px rgba(225, 29, 72, .6)); }
+  @keyframes floatUp {
+    0% { transform: translateY(10vh) scale(.5) rotate(0); opacity: 0; }
+    20%, 80% { opacity: .9; }
+    100% { transform: translateY(-110vh) scale(1.5) rotate(360deg); opacity: 0; }
+  }
+  .pulse { display: inline-block; animation: pulse 1.5s cubic-bezier(.4, 0, .6, 1) infinite; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(225, 29, 72, .8)); }
+    50% { transform: scale(1.2); opacity: .8; filter: drop-shadow(0 0 2px rgba(225, 29, 72, .4)); }
+  }
+  @keyframes bounce { 0%, 100% { transform: translateY(-25%); } 50% { transform: none; } }
+
+  .wrap { position: relative; z-index: 1; }
+  .container { max-width: 56rem; margin: 0 auto; padding: 0 1rem; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--card); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--line); box-shadow: var(--shadow);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding-block: .75rem; }
+  .brand { display: flex; align-items: center; gap: .75rem; min-width: 0; }
+  .logo {
+    flex: none; width: 3rem; height: 3rem; border-radius: 50%; display: grid; place-items: center;
+    color: #fff; font-size: 1.25rem; background: linear-gradient(45deg, #dc2626, #db2777);
+    border: 2px solid var(--ring); box-shadow: 0 8px 16px -4px rgba(220, 38, 38, .45);
+  }
+  .brand h1 {
+    font-family: var(--serif); font-weight: 700; font-size: clamp(1.15rem, 3.5vw, 1.5rem); line-height: 1.2;
+    background: linear-gradient(90deg, var(--grad-a), var(--grad-b)); -webkit-background-clip: text; background-clip: text; color: transparent;
+    display: inline-block;
+  }
+  .brand p { font-size: .75rem; font-weight: 700; color: var(--muted); }
+  .actions { display: flex; align-items: center; gap: .5rem; flex: none; }
+  .icon-btn {
+    width: 2.5rem; height: 2.5rem; border-radius: 50%; display: grid; place-items: center;
+    background: var(--btn-bg); border: 1px solid var(--line); color: var(--accent); transition: background .15s;
+  }
+  .icon-btn:hover { background: var(--chip-bg); }
+  .icon-btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: .5rem; padding: .65rem 1.2rem; border-radius: 999px;
+    border: 1px solid rgba(248, 113, 113, .5); color: #fff; font-size: .85rem; font-weight: 700;
+    background: linear-gradient(90deg, #dc2626, #db2777); box-shadow: 0 8px 16px -4px rgba(220, 38, 38, .45);
+    transition: transform .1s;
+  }
+  .share-btn:active { transform: scale(.95); }
+  @media (max-width: 520px) { .share-btn span { display: none; } .share-btn { padding: .65rem .8rem; } }
+
+  /* Hero */
+  main { padding-block: 3rem; }
+  .hero {
+    position: relative; text-align: center; margin-bottom: 3.5rem; padding: 2.75rem 1.5rem 2rem;
+    background: var(--card); border: 2px solid var(--line); border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25); backdrop-filter: blur(12px);
+  }
+  .badge {
+    position: absolute; top: -1.2rem; left: 50%; transform: translateX(-50%); white-space: nowrap;
+    display: inline-flex; align-items: center; gap: .5rem; padding: .4rem 1.5rem; border-radius: 999px;
+    background: #dc2626; color: #fff; font-size: .85rem; font-weight: 700; letter-spacing: .08em;
+    border: 2px solid var(--ring); box-shadow: 0 8px 16px -4px rgba(220, 38, 38, .5);
+  }
+  .badge i { animation: bounce 1s infinite; }
+  .hero h2 {
+    font-family: var(--serif); font-weight: 800; letter-spacing: -.02em; line-height: 1.1;
+    font-size: clamp(2.2rem, 6.5vw, 3.75rem); margin: .75rem 0 1.25rem;
+  }
+  .hero .hl { background: linear-gradient(90deg, #dc2626, #db2777); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero .intro { max-width: 36rem; margin: 0 auto; font-size: 1.1rem; font-weight: 600; line-height: 1.65; }
+  .tip { margin-top: .9rem; font-size: .75rem; font-weight: 500; color: var(--accent); opacity: .85; }
+
+  /* Timeline */
+  .timeline {
+    list-style: none; margin: 0 0 0 1rem; padding: 0 0 0 1.75rem;
+    border-left: 4px solid #f87171; display: grid; gap: 2.5rem;
+  }
+  .stop { position: relative; }
+  .dot {
+    position: absolute; left: calc(-1.75rem - 2px - 1rem); top: .4rem; width: 2rem; height: 2rem; border-radius: 50%;
+    display: grid; place-items: center; background: #dc2626; color: #fff; font-weight: 700; font-size: .9rem;
+    box-shadow: 0 0 0 4px var(--ring), 0 8px 16px -4px rgba(220, 38, 38, .5);
+  }
+  @media (min-width: 640px) {
+    .timeline { margin-left: 2rem; padding-left: 2.5rem; }
+    .dot { left: calc(-2.5rem - 2px - 1.25rem); width: 2.5rem; height: 2.5rem; font-size: 1rem; }
+  }
+  .card {
+    background: var(--card); border: 2px solid var(--line); border-radius: 1rem; padding: 1.25rem;
+    box-shadow: var(--shadow); backdrop-filter: blur(12px); transition: transform .3s, box-shadow .3s, border-color .3s;
+  }
+  @media (min-width: 640px) { .card { padding: 1.75rem; } }
+  body:not(.editing) .card:hover { transform: translateY(-4px); border-color: #f87171; box-shadow: 0 25px 50px -12px rgba(225, 29, 72, .35); }
+  .card-head { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; padding-bottom: 1rem; border-bottom: 2px solid var(--divider); }
+  .time {
+    display: inline-flex; align-items: center; gap: .4rem; padding: .35rem 1rem; border-radius: .5rem;
+    background: var(--chip-bg); color: var(--chip-ink); border: 1px solid var(--chip-line); font-size: .85rem; font-weight: 700;
+  }
+  .stop-title { font-family: var(--serif); font-weight: 800; font-size: clamp(1.25rem, 3.5vw, 1.5rem); line-height: 1.25; }
+  .desc { margin-top: 1rem; font-weight: 500; line-height: 1.65; }
+  .desc strong { font-size: 1.1em; }
+  .map-link {
+    display: inline-flex; align-items: center; gap: .4rem; margin-top: 1rem; font-size: .85rem; font-weight: 700;
+    color: var(--accent); text-decoration: none; padding: .35rem .8rem; border-radius: 999px; border: 1px solid var(--line);
+  }
+  .map-link:hover { background: var(--chip-bg); }
+
+  /* Packing */
+  .pack {
+    margin-top: 4rem; padding: 1.5rem; border-radius: 1.5rem; background: var(--card);
+    border: 2px solid var(--line); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+  @media (min-width: 640px) { .pack { padding: 2.5rem; } }
+  .pack h3 { font-family: var(--serif); font-weight: 800; font-size: 1.85rem; line-height: 1.2; display: flex; align-items: baseline; gap: .75rem; margin-bottom: .75rem; }
+  .pack h3 i { color: #dc2626; font-size: 1.5rem; }
+  .pack-intro { color: var(--muted); font-weight: 500; margin-bottom: 2rem; }
+  .pack-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .pack-item {
+    display: flex; align-items: center; gap: .9rem; padding: 1rem; border-radius: .75rem;
+    background: var(--item-bg); border: 2px solid var(--item-line); cursor: pointer; transition: background .15s, border-color .15s;
+  }
+  .pack-item:hover { border-color: #f87171; background: var(--item-hover); }
+  .pack-item input { flex: none; width: 1.25rem; height: 1.25rem; accent-color: #dc2626; cursor: pointer; margin: 0; }
+  .pack-item .text { flex: 1; font-weight: 700; }
+  .pack-item.done .text { text-decoration: line-through; opacity: .55; }
+
+  footer {
+    margin-top: 3rem; padding: 2.5rem 1rem; text-align: center; font-size: .9rem; font-weight: 700; color: var(--muted);
+    border-top: 2px solid var(--line); background: var(--card);
+    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px));
+  }
+  footer i { color: #dc2626; margin: 0 .25rem; }
+
+  /* Edit mode */
+  .edit-only { display: none !important; }
+  body.editing .edit-only { display: flex !important; }
+  body.editing [contenteditable="true"] { outline: 1px dashed rgba(225, 29, 72, .45); border-radius: 4px; cursor: text; }
+  body.editing [contenteditable="true"]:hover { background: rgba(225, 29, 72, .06); }
+  body.editing [contenteditable="true"]:focus { outline: 2px solid rgba(225, 29, 72, .7); }
+  [data-placeholder]:empty::before { content: attr(data-placeholder); opacity: .45; font-style: italic; }
+  body:not(.editing) [data-placeholder]:empty { display: none; }
+  body:not(.editing) .tip { display: none; }
+
+  .tools { gap: .5rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--line); flex-wrap: wrap; align-items: center; }
+  .map-edit { align-items: center; gap: .5rem; flex: 1 1 220px; color: var(--accent); }
+  .map-edit input {
+    flex: 1; min-width: 0; padding: .45rem .7rem; border-radius: .5rem; border: 1px solid var(--line);
+    background: var(--item-bg); color: var(--ink); font: inherit; font-size: .85rem;
+  }
+  .mini {
+    display: inline-grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: .5rem;
+    border: 1px solid var(--line); background: var(--btn-bg); color: var(--muted);
+  }
+  .mini:hover { color: var(--accent); background: var(--chip-bg); }
+  .mini:disabled { opacity: .35; cursor: default; }
+  .mini.danger:hover { color: #fff; background: #dc2626; }
+  .add-btn {
+    justify-content: center; align-items: center; gap: .5rem; width: 100%; margin-top: 1.25rem; padding: .9rem;
+    border-radius: .75rem; border: 2px dashed var(--line); background: transparent; color: var(--accent); font-weight: 700;
+  }
+  .add-btn:hover { background: var(--chip-bg); }
+  .add-stop { margin-left: 1rem; width: calc(100% - 1rem); }
+  @media (min-width: 640px) { .add-stop { margin-left: 2rem; width: calc(100% - 2rem); } }
+
+  .editbar {
+    position: fixed; z-index: 60; left: 50%; transform: translateX(-50%);
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    align-items: center; gap: .5rem; flex-wrap: wrap; justify-content: center;
+    width: max-content; max-width: calc(100% - 1.5rem); padding: .6rem .7rem .6rem 1rem; border-radius: 1rem;
+    background: #1c1117; color: #fbeff3; box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .5); font-size: .85rem;
+  }
+  .editbar .label { font-weight: 600; margin-right: .25rem; }
+  .editbar button { padding: .5rem .9rem; border-radius: .6rem; border: 1px solid rgba(255, 255, 255, .2); background: transparent; color: inherit; font-weight: 600; font-size: .8rem; }
+  .editbar button:hover { background: rgba(255, 255, 255, .1); }
+  .editbar .primary { background: linear-gradient(90deg, #dc2626, #db2777); border-color: transparent; }
+  body.editing { padding-bottom: 7rem; }
+
+  .toast {
+    position: fixed; z-index: 70; right: 1.5rem; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    display: flex; align-items: center; gap: .75rem; padding: .8rem 1.2rem; border-radius: .75rem;
+    background: #1c1117; color: #fff; font-size: .875rem; font-weight: 500; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .3);
+    transform: translateY(5rem); opacity: 0; transition: all .3s; pointer-events: none;
+  }
+  .toast.show { transform: none; opacity: 1; }
+  .toast i { color: #fb7185; }
+  body.editing .toast { bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
+
+  /* Love counter */
+  .counter {
+    display: inline-flex; align-items: baseline; gap: .55rem; flex-wrap: wrap; justify-content: center;
+    margin-top: 1.5rem; padding: .6rem 1.4rem; border-radius: 999px;
+    background: var(--chip-bg); color: var(--chip-ink); border: 1px solid var(--chip-line); font-weight: 700;
+  }
+  .counter .num { font-family: var(--serif); font-size: 1.9rem; font-weight: 800; line-height: 1; color: var(--accent); }
+  .date-edit { justify-content: center; align-items: center; gap: .5rem; margin-top: .75rem; font-size: .85rem; font-weight: 600; color: var(--muted); }
+  .date-edit input { padding: .35rem .6rem; border-radius: .5rem; border: 1px solid var(--line); background: var(--item-bg); color: var(--ink); font: inherit; }
+
+  /* Heart-shaped timeline markers */
+  .dot { background: var(--bg); box-shadow: none; }
+  .dot::before {
+    content: "\f004"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; inset: -.35rem;
+    display: grid; place-items: center; font-size: 2.3rem; color: #dc2626; filter: drop-shadow(0 4px 6px rgba(220, 38, 38, .5));
+  }
+  .dot span { position: relative; margin-top: -.15rem; }
+  @media (min-width: 640px) { .dot::before { font-size: 2.85rem; } }
+
+  /* Love note on each stop */
+  .note-wrap {
+    display: flex; gap: .6rem; align-items: flex-start; margin-top: 1rem; padding: .75rem 1rem;
+    border-left: 3px solid #f472b6; border-radius: 0 .75rem .75rem 0; background: var(--item-hover);
+  }
+  .note { font-family: var(--serif); font-style: italic; font-size: 1.05rem; line-height: 1.6; color: var(--muted); flex: 1; }
+  body:not(.editing) .note-wrap:has(.note:empty) { display: none; }
+
+  /* Shared section styling */
+  .love-sec {
+    margin-top: 4rem; padding: 1.5rem; border-radius: 1.5rem; background: var(--card);
+    border: 2px solid var(--line); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+  }
+  @media (min-width: 640px) { .love-sec { padding: 2.5rem; } }
+  .love-sec h3 { font-family: var(--serif); font-weight: 800; font-size: 1.85rem; line-height: 1.2; display: flex; align-items: baseline; gap: .75rem; margin-bottom: .75rem; }
+  .love-sec h3 i { color: #db2777; font-size: 1.5rem; }
+  .sec-intro { color: var(--muted); font-weight: 500; margin-bottom: 2rem; }
+
+  /* Reasons I love you */
+  .reason-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .reason {
+    position: relative; min-height: 8.5rem; border-radius: 1rem; cursor: pointer; perspective: 800px;
+  }
+  .reason-inner { position: absolute; inset: 0; transition: transform .6s; transform-style: preserve-3d; }
+  .reason.open .reason-inner, body.editing .reason-inner { transform: rotateY(180deg); }
+  .reason-face {
+    position: absolute; inset: 0; border-radius: 1rem; padding: 1rem; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: .35rem;
+  }
+  .reason-front { background: linear-gradient(135deg, #dc2626, #db2777); color: #fff; box-shadow: 0 10px 20px -6px rgba(219, 39, 119, .5); }
+  .reason-front .big { font-size: 2.2rem; line-height: 1; }
+  .reason-front .small { font-size: .8rem; font-weight: 700; opacity: .9; }
+  .reason-back { transform: rotateY(180deg); background: var(--item-bg); border: 2px solid #f472b6; }
+  .reason-back .text { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 1.05rem; line-height: 1.45; }
+  .reason-back .mini { position: absolute; top: .4rem; right: .4rem; width: 1.8rem; height: 1.8rem; }
+  body.editing .reason { cursor: default; }
+  .reason:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+
+  /* Love letter */
+  .envelope {
+    display: flex; flex-direction: column; align-items: center; gap: .5rem; width: 100%; padding: 2rem 1rem;
+    border-radius: 1.25rem; border: 2px dashed #f472b6; background: var(--item-hover); cursor: pointer; text-align: center;
+    transition: transform .2s;
+  }
+  .envelope:hover { transform: scale(1.01); }
+  .envelope .env-icon { font-size: 3.5rem; line-height: 1; animation: bounce 1.6s infinite; }
+  .envelope .env-title { font-family: var(--serif); font-weight: 800; font-size: 1.6rem; }
+  .envelope .env-hint { font-size: .8rem; font-weight: 700; color: var(--accent); }
+  .letter-sec.open .envelope, body.editing .envelope .env-hint { display: none; }
+  body.editing .envelope { cursor: default; }
+  .letter {
+    display: none; padding: 2rem 1.5rem; border-radius: 1rem; background: var(--item-bg);
+    border: 2px solid var(--chip-line); box-shadow: inset 0 0 0 6px var(--item-hover);
+    background-image: repeating-linear-gradient(transparent 0 2.15rem, var(--divider) 2.15rem calc(2.15rem + 1px));
+  }
+  .letter-sec.open .letter, body.editing .letter { display: block; animation: unfold .6s ease-out; }
+  body.editing .letter-sec .envelope { margin-bottom: 1rem; }
+  @keyframes unfold { from { opacity: 0; transform: translateY(-12px) scaleY(.9); } to { opacity: 1; transform: none; } }
+  .letter .letter-title { font-family: var(--serif); font-weight: 800; font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent); }
+  .letter-body { font-family: var(--serif); font-size: 1.15rem; line-height: 2.15rem; }
+  .signoff { margin-top: 1.5rem; text-align: right; font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 1.3rem; color: var(--accent-2); }
+
+  /* Tap hearts */
+  .burst { position: fixed; z-index: 80; pointer-events: none; font-size: 1.2rem; animation: burst .9s ease-out forwards; }
+  @keyframes burst {
+    from { transform: translate(-50%, -50%) scale(.5); opacity: 1; }
+    to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.2) rotate(var(--r)); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .heart, .burst { display: none; }
+    .envelope .env-icon, .letter { animation: none !important; }
+    .reason-inner { transition: none; }
+    .pulse, .badge i { animation: none; }
+    .card, .toast { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="heart" style="left:10%;font-size:1.9rem;animation-duration:12s;animation-delay:0s">❤️</div>
+  <div class="heart" style="left:25%;font-size:3rem;animation-duration:15s;animation-delay:3s">💖</div>
+  <div class="heart" style="left:60%;font-size:1.5rem;animation-duration:10s;animation-delay:1s">💕</div>
+  <div class="heart" style="left:80%;font-size:2.25rem;animation-duration:18s;animation-delay:2s">💘</div>
+  <div class="heart" style="left:45%;font-size:1.9rem;animation-duration:14s;animation-delay:7s">💗</div>
+  <div class="heart" style="left:15%;font-size:2.25rem;animation-duration:16s;animation-delay:5s">💓</div>
+  <div class="heart" style="left:85%;font-size:1.5rem;animation-duration:11s;animation-delay:8s">💝</div>
+  <div class="heart" style="left:70%;font-size:3rem;animation-duration:13s;animation-delay:4s">❤️‍🔥</div>
+  <div class="heart" style="left:5%;font-size:1.6rem;animation-duration:17s;animation-delay:9s">🌹</div>
+  <div class="heart" style="left:35%;font-size:1.4rem;animation-duration:12s;animation-delay:6s">💞</div>
+  <div class="heart" style="left:52%;font-size:2.4rem;animation-duration:19s;animation-delay:10s">💌</div>
+  <div class="heart" style="left:92%;font-size:1.8rem;animation-duration:14s;animation-delay:11s">💐</div>
+  <div class="heart" style="left:30%;font-size:2rem;animation-duration:16s;animation-delay:13s">😘</div>
+  <div class="heart" style="left:65%;font-size:1.6rem;animation-duration:15s;animation-delay:12s">💋</div>
+</div>
+
+<div class="wrap">
+  <header>
+    <div class="container bar">
+      <div class="brand">
+        <div class="logo"><i class="fa-solid fa-heart pulse"></i></div>
+        <div>
+          <h1 data-field="headerTitle"></h1>
+          <p data-field="headerSubtitle"></p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="icon-btn" id="editBtn" type="button" aria-pressed="false" title="Edit page"><i class="fa-solid fa-pen"></i></button>
+        <button class="icon-btn" id="themeBtn" type="button" title="Switch light/dark"><i id="themeIcon" class="fa-solid fa-moon"></i></button>
+        <button class="share-btn" id="shareBtn" type="button"><i class="fa-solid fa-share-nodes"></i><span>Share</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="badge"><i class="fa-solid fa-heart"></i><span data-field="badge"></span></span>
+      <h2><span data-field="title"></span> <span class="hl" data-field="titleHighlight"></span></h2>
+      <p class="intro" data-field="intro" data-rich="" data-placeholder="Write a sweet message for her here…"></p>
+      <div class="counter"><i class="fa-solid fa-heart pulse"></i><span class="num" id="dayCount">0</span><span data-field="counterLabel"></span></div>
+      <label class="edit-only date-edit"><i class="fa-solid fa-calendar-days"></i>Our first day together <input type="date" id="startDate"></label>
+      <p class="tip"><i class="fa-solid fa-pen-to-square"></i> Click any dashed text to edit it. Changes save on this device until you download the page.</p>
+    </section>
+
+    <ol class="timeline" id="stops"></ol>
+    <button class="edit-only add-btn add-stop" id="addStop" type="button"><i class="fa-solid fa-plus"></i> Add a stop</button>
+
+    <section class="pack">
+      <h3><i class="fa-solid fa-bag-shopping"></i><span data-field="packTitle"></span></h3>
+      <p class="pack-intro" data-field="packIntro" data-rich=""></p>
+      <ul class="pack-list" id="packList"></ul>
+      <button class="edit-only add-btn" id="addItem" type="button"><i class="fa-solid fa-plus"></i> Add an item</button>
+    </section>
+
+    <section class="love-sec">
+      <h3><i class="fa-solid fa-heart"></i><span data-field="reasonsTitle"></span></h3>
+      <p class="sec-intro" data-field="reasonsIntro" data-rich=""></p>
+      <ul class="reason-list" id="reasonList"></ul>
+      <button class="edit-only add-btn" id="addReason" type="button"><i class="fa-solid fa-plus"></i> Add a reason</button>
+    </section>
+
+    <section class="love-sec letter-sec" id="letterSec">
+      <div class="envelope" id="envelope" role="button" tabindex="0" aria-expanded="false" aria-controls="letter">
+        <span class="env-icon">💌</span>
+        <span class="env-title" data-field="letterTitle"></span>
+        <span class="env-hint">Tap to open your letter</span>
+      </div>
+      <div class="letter" id="letter">
+        <div class="letter-body" data-field="letter" data-rich="" data-placeholder="Write your letter here…"></div>
+        <p class="signoff" data-field="signoff"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer><i class="fa-solid fa-heart pulse"></i> <span data-field="footer"></span></footer>
+</div>
+
+<div class="editbar edit-only" role="toolbar" aria-label="Editing tools">
+  <span class="label"><i class="fa-solid fa-pen"></i> Editing</span>
+  <button type="button" class="primary" id="downloadBtn"><i class="fa-solid fa-download"></i> Download HTML</button>
+  <button type="button" id="discardBtn">Discard changes</button>
+  <button type="button" id="doneBtn">Done</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><i class="fa-solid fa-circle-check"></i><span id="toastMsg"></span></div>
+
+<!--
+  ============================================================
+  YOUR CONTENT LIVES HERE.
+  You can edit this JSON directly on GitHub, or click the pencil
+  button on the page, edit visually, then "Download HTML" and
+  upload the downloaded file as index.html to your repo.
+  ============================================================
+-->
+<script type="application/json" id="itinerary-data">
+{
+  "headerTitle": "Anniversary Date",
+  "headerSubtitle": "Friday Special Experience",
+  "badge": "This Friday",
+  "title": "Our One Year Anniversary",
+  "titleHighlight": "Journey",
+  "intro": "One whole year of laughter, late-night talks and a thousand little moments with you. This Friday is all about us, love. Here's the plan for this Friday together 💕",
+  "startDate": "2025-10-11",
+  "counterLabel": "days of loving you, and counting",
+  "stops": [
+    {
+      "id": "s1",
+      "time": "09:00 AM",
+      "title": "Pick Up at Southville City",
+      "desc": "Start the anniversary day right on time! Pick you up from Southville City!",
+      "note": "The best part of my morning? Seeing your smile the moment you get in the car. 🥰",
+      "map": "Southville City"
+    },
+    {
+      "id": "s2",
+      "time": "~09:25 AM – 11:30 AM",
+      "title": "Mitsui Outlet Park KLIA",
+      "desc": "Buy a special anniversary gift for each other! and lunch!!",
+      "note": "Whatever gift we choose, the real present is having you beside me all day.",
+      "map": "Mitsui Outlet Park KLIA Sepang"
+    },
+    {
+      "id": "s3",
+      "time": "11:45 AM – 01:30 PM",
+      "title": "Friday Prayer & KLIA1 Parking",
+      "desc": "Break for Friday prayers kejap!!",
+      "note": "Grateful to Allah for bringing you into my life. Alhamdulillah for you. 🤲",
+      "map": "KLIA Terminal 1"
+    },
+    {
+      "id": "s4",
+      "time": "01:30 PM – 05:00 PM",
+      "title": "Shuttle to Sepang F1 Circuit",
+      "desc": "Catch the official event shuttle bus straight from KLIA to Sepang International Circuit!&nbsp;",
+      "note": "Those engines are loud, but my heart still races fastest for you. 🏎️💨",
+      "map": "Sepang International Circuit"
+    },
+    {
+      "id": "s5",
+      "time": "~05:45 PM Onwards",
+      "title": "Dinner at Jibril Bangi",
+      "desc": "Drive back to Bangi and dinner dekat Jibril!! &nbsp;❤",
+      "note": "Here's to our first year, and to every year after. I love you. ❤",
+      "map": "Jibril Bangi"
+    }
+  ],
+  "packTitle": "Barang Apa Nak Bawa (Packing List) 🎒",
+  "packIntro": "Sediakan barang-barang penting ni untuk pastikan date kita selesa, siap sedia kalau hujan, panas &amp; jerebu kat Sepang! 💕",
+  "pack": [
+    {
+      "id": "p1",
+      "text": "👕 Baju Spare (Baju Salin)"
+    },
+    {
+      "id": "p2",
+      "text": "☂️ Payung (Takut Hujan / Panas)"
+    },
+    {
+      "id": "p3",
+      "text": "🌧️ Poncho (Best untuk Sepang F1)"
+    },
+    {
+      "id": "p4",
+      "text": "🧘 Tikar (Untuk Duduk / Rehat)"
+    },
+    {
+      "id": "p5",
+      "text": "💨 Kipas Kecik (Portable Fan)"
+    },
+    {
+      "id": "p6",
+      "text": "🩴 Selipar (Selesa & Senang Pakai)"
+    },
+    {
+      "id": "p7",
+      "text": "😷 Face Mask (Sebab Jerebu)"
+    },
+    {
+      "id": "p8",
+      "text": "🧢 Topi & 🕶️ Sunglasses"
+    }
+  ],
+  "reasonsTitle": "Reasons I Love You",
+  "reasonsIntro": "Tap each card to open a little reason. There are so many more than these. 💞",
+  "reasons": [
+    {
+      "id": "r1",
+      "text": "Your smile makes every hard day feel lighter."
+    },
+    {
+      "id": "r2",
+      "text": "The way you laugh at my terrible jokes."
+    },
+    {
+      "id": "r3",
+      "text": "How you always make sure I've eaten."
+    },
+    {
+      "id": "r4",
+      "text": "Your kindness to everyone around you."
+    },
+    {
+      "id": "r5",
+      "text": "With you, I feel completely at home."
+    },
+    {
+      "id": "r6",
+      "text": "Your patience with me, every single time."
+    },
+    {
+      "id": "r7",
+      "text": "You turn ordinary days into memories."
+    },
+    {
+      "id": "r8",
+      "text": "Because you're simply, perfectly you."
+    }
+  ],
+  "letterTitle": "A Letter For You",
+  "letter": "My love,\u003cbr>\u003cbr>A year ago I didn't know how much one person could change my whole world. Then you came along, and suddenly everything felt brighter, calmer, and so much more fun.\u003cbr>\u003cbr>Thank you for every laugh, every momment, every time you believed in me, and every time you stayed patient when I was being difficult. I don't say it enough, but I'm so proud to be yours.\u003cbr>\u003cbr>Today is just one day, but I hope it reminds you how much you mean to me. I can't wait for all the adventures still ahead of us.\u003cbr>\u003cbr>Happy anniversary, love.",
+  "signoff": "Forever yours ❤️",
+  "footer": "Made with all my love, for the one I love most"
+}
+</script>
+
+<script>
+(function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const dataEl = $('#itinerary-data');
+  const BASE = dataEl.textContent.trim();
+  const DRAFT_KEY = 'itinerary-draft:' + location.pathname;
+  const CHECK_KEY = 'itinerary-checks:' + location.pathname;
+  const THEME_KEY = 'itinerary-theme';
+
+  const store = {
+    get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+    del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+
+  // Load content: a local draft is used only if it was made from this exact version of the file.
+  let data = JSON.parse(BASE);
+  const draft = store.get(DRAFT_KEY);
+  if (draft && draft.base === BASE && draft.data) data = draft.data;
+  let checks = store.get(CHECK_KEY) || {};
+  let editing = false;
+
+  const saveDraft = () => store.set(DRAFT_KEY, { base: BASE, data });
+  const newId = (p) => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+
+  // ---------- Editable binding ----------
+  function bind(el, obj, key, rich) {
+    el._bind = { obj, key, rich };
+    el.dataset.edit = rich ? 'rich' : 'plain';
+    if (rich) el.innerHTML = obj[key] || ''; else el.textContent = obj[key] || '';
+  }
+  function applyEditable() {
+    document.querySelectorAll('[data-edit]').forEach(el => {
+      if (editing) el.setAttribute('contenteditable', 'true'); else el.removeAttribute('contenteditable');
+    });
+  }
+  document.addEventListener('input', e => {
+    const el = e.target.closest && e.target.closest('[data-edit]');
+    if (!el || !el._bind) return;
+    const { obj, key, rich } = el._bind;
+    let v = rich ? el.innerHTML : el.textContent;
+    if (rich && (v === '<br>' || v.trim() === '')) { v = ''; el.innerHTML = ''; }
+    obj[key] = v;
+    saveDraft();
+  });
+  document.addEventListener('keydown', e => {
+    const el = e.target.closest && e.target.closest('[data-edit="plain"]');
+    if (el && e.key === 'Enter') { e.preventDefault(); el.blur(); }
+  });
+  document.addEventListener('paste', e => {
+    const el = e.target.closest && e.target.closest('[data-edit]');
+    if (!el) return;
+    e.preventDefault();
+    let text = (e.clipboardData || window.clipboardData).getData('text/plain');
+    if (el.dataset.edit === 'plain') text = text.replace(/\s*\n\s*/g, ' ');
+    document.execCommand('insertText', false, text);
+  });
+
+  // ---------- Render ----------
+  function renderFields() {
+    document.querySelectorAll('[data-field]').forEach(el => bind(el, data, el.dataset.field, el.hasAttribute('data-rich')));
+    document.title = (data.title || 'Our Itinerary') + ' ❤️';
+  }
+
+  function mapUrl(v) {
+    return /^https?:\/\//i.test(v) ? v : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(v);
+  }
+
+  function renderStops() {
+    const ol = $('#stops');
+    ol.innerHTML = '';
+    data.stops.forEach((s, i) => {
+      const li = document.createElement('li');
+      li.className = 'stop';
+      li.innerHTML = `
+        <span class="dot" aria-hidden="true"><span>${i + 1}</span></span>
+        <article class="card">
+          <div class="card-head">
+            <span class="time"><i class="fa-solid fa-clock"></i><span class="t" data-placeholder="Time"></span></span>
+            <h3 class="stop-title" data-placeholder="Stop name"></h3>
+          </div>
+          <p class="desc" data-placeholder="What happens here…"></p>
+          <div class="note-wrap"><span aria-hidden="true">💌</span><p class="note" data-placeholder="A little love note for this moment (optional)"></p></div>
+          <a class="map-link" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i> Directions</a>
+          <div class="edit-only tools">
+            <label class="edit-only map-edit" title="Shows a Directions button">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="text" placeholder="Place name or Maps link (optional)">
+            </label>
+            <button type="button" class="mini" data-act="up" title="Move up" aria-label="Move up"><i class="fa-solid fa-arrow-up"></i></button>
+            <button type="button" class="mini" data-act="down" title="Move down" aria-label="Move down"><i class="fa-solid fa-arrow-down"></i></button>
+            <button type="button" class="mini danger" data-act="del" title="Delete stop" aria-label="Delete stop"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </article>`;
+      bind($('.t', li), s, 'time', false);
+      bind($('.stop-title', li), s, 'title', false);
+      bind($('.desc', li), s, 'desc', true);
+      bind($('.note', li), s, 'note', true);
+
+      const link = $('.map-link', li);
+      const updateLink = () => {
+        if (s.map) { link.href = mapUrl(s.map); link.hidden = false; } else link.hidden = true;
+      };
+      updateLink();
+      const input = $('.map-edit input', li);
+      input.value = s.map || '';
+      input.addEventListener('input', () => { s.map = input.value.trim(); updateLink(); saveDraft(); });
+
+      $('[data-act="up"]', li).disabled = i === 0;
+      $('[data-act="down"]', li).disabled = i === data.stops.length - 1;
+      li.querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', () => {
+        const act = b.dataset.act;
+        if (act === 'del') {
+          if (!confirm('Delete "' + (s.title || 'this stop') + '"?')) return;
+          data.stops.splice(i, 1);
+        } else {
+          const j = act === 'up' ? i - 1 : i + 1;
+          [data.stops[i], data.stops[j]] = [data.stops[j], data.stops[i]];
+        }
+        saveDraft(); renderStops();
+      }));
+      ol.appendChild(li);
+    });
+    applyEditable();
+  }
+
+  function renderPack() {
+    const ul = $('#packList');
+    ul.innerHTML = '';
+    data.pack.forEach((p, i) => {
+      const li = document.createElement('li');
+      li.className = 'pack-item';
+      li.innerHTML = `
+        <input type="checkbox" aria-label="Packed">
+        <span class="text" data-placeholder="New item"></span>
+        <button type="button" class="mini danger edit-only" title="Remove item" aria-label="Remove item"><i class="fa-solid fa-xmark"></i></button>`;
+      const cb = $('input', li);
+      const text = $('.text', li);
+      bind(text, p, 'text', false);
+      cb.checked = !!checks[p.id];
+      li.classList.toggle('done', cb.checked);
+      cb.addEventListener('change', () => {
+        checks[p.id] = cb.checked; li.classList.toggle('done', cb.checked); store.set(CHECK_KEY, checks);
+      });
+      li.addEventListener('click', e => {
+        if (editing || e.target === cb || e.target.closest('button')) return;
+        cb.checked = !cb.checked; cb.dispatchEvent(new Event('change'));
+      });
+      $('button', li).addEventListener('click', () => {
+        data.pack.splice(i, 1); saveDraft(); renderPack();
+      });
+      ul.appendChild(li);
+    });
+    applyEditable();
+  }
+
+  function renderReasons() {
+    const ul = $('#reasonList');
+    ul.innerHTML = '';
+    data.reasons.forEach((r, i) => {
+      const li = document.createElement('li');
+      li.className = 'reason';
+      li.tabIndex = 0;
+      li.setAttribute('role', 'button');
+      li.setAttribute('aria-label', 'Reason ' + (i + 1));
+      li.innerHTML = `
+        <div class="reason-inner">
+          <div class="reason-face reason-front"><span class="big">💝</span><span class="small">Reason #${i + 1}</span></div>
+          <div class="reason-face reason-back">
+            <p class="text" data-placeholder="Why I love you…"></p>
+            <button type="button" class="mini danger edit-only" title="Remove reason" aria-label="Remove reason"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>`;
+      bind($('.text', li), r, 'text', false);
+      const flip = () => { if (!editing) li.classList.toggle('open'); };
+      li.addEventListener('click', e => { if (!e.target.closest('button')) flip(); });
+      li.addEventListener('keydown', e => {
+        if (!editing && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); flip(); }
+      });
+      $('button', li).addEventListener('click', () => { data.reasons.splice(i, 1); saveDraft(); renderReasons(); });
+      ul.appendChild(li);
+    });
+    applyEditable();
+  }
+
+  function parseDate(s) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || '');
+    return m ? new Date(+m[1], m[2] - 1, +m[3]) : null;
+  }
+  function renderCounter() {
+    const start = parseDate(data.startDate);
+    const now = new Date(); now.setHours(0, 0, 0, 0);
+    const days = start ? Math.max(0, Math.round((now - start) / 86400000)) : 0;
+    $('#dayCount').textContent = days.toLocaleString();
+    $('#startDate').value = data.startDate || '';
+  }
+  $('#startDate').addEventListener('input', e => { data.startDate = e.target.value; saveDraft(); renderCounter(); });
+
+  const letterSec = $('#letterSec');
+  function openLetter() {
+    if (editing || letterSec.classList.contains('open')) return;
+    letterSec.classList.add('open');
+    $('#envelope').setAttribute('aria-expanded', 'true');
+    const r = $('#letter').getBoundingClientRect();
+    for (let k = 0; k < 3; k++) setTimeout(() => burst(r.left + r.width * (0.2 + 0.3 * k), r.top + 40), k * 150);
+  }
+  $('#envelope').addEventListener('click', openLetter);
+  $('#envelope').addEventListener('keydown', e => {
+    if (!editing && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openLetter(); }
+  });
+
+  // Little hearts pop out wherever she taps
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const burstEmojis = ['❤️', '💖', '💕', '💗', '💘', '🌹'];
+  function burst(x, y) {
+    if (reduceMotion.matches) return;
+    for (let k = 0; k < 7; k++) {
+      const s = document.createElement('span');
+      s.className = 'burst';
+      s.textContent = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
+      const ang = (Math.PI * 2 * k) / 7 + Math.random() * .5;
+      const dist = 45 + Math.random() * 45;
+      s.style.left = x + 'px'; s.style.top = y + 'px';
+      s.style.setProperty('--dx', Math.cos(ang) * dist + 'px');
+      s.style.setProperty('--dy', Math.sin(ang) * dist - 20 + 'px');
+      s.style.setProperty('--r', (Math.random() * 60 - 30) + 'deg');
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 950);
+    }
+  }
+  document.addEventListener('pointerdown', e => {
+    if (editing || e.target.closest('input, [contenteditable="true"], .editbar')) return;
+    burst(e.clientX, e.clientY);
+  });
+
+  function renderAll() { renderFields(); renderCounter(); renderStops(); renderPack(); renderReasons(); applyEditable(); }
+
+  // ---------- Edit mode ----------
+  function setEditing(on) {
+    editing = on;
+    document.body.classList.toggle('editing', on);
+    $('#editBtn').setAttribute('aria-pressed', String(on));
+    applyEditable();
+  }
+  $('#editBtn').addEventListener('click', () => setEditing(!editing));
+  $('#doneBtn').addEventListener('click', () => { setEditing(false); toast('Changes saved on this device'); });
+
+  $('#addStop').addEventListener('click', () => {
+    data.stops.push({ id: newId('s'), time: '', title: '', desc: '', note: '', map: '' });
+    saveDraft(); renderStops();
+    const last = $('#stops').lastElementChild;
+    last.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    $('.stop-title', last).focus();
+  });
+  $('#addReason').addEventListener('click', () => {
+    data.reasons.push({ id: newId('r'), text: '' });
+    saveDraft(); renderReasons();
+    $('#reasonList').lastElementChild.querySelector('.text').focus();
+  });
+  $('#addItem').addEventListener('click', () => {
+    data.pack.push({ id: newId('p'), text: '' });
+    saveDraft(); renderPack();
+    $('#packList').lastElementChild.querySelector('.text').focus();
+  });
+
+  $('#discardBtn').addEventListener('click', () => {
+    if (!confirm('Discard all edits and go back to the version saved in this file?')) return;
+    store.del(DRAFT_KEY);
+    data = JSON.parse(BASE);
+    renderAll();
+    toast('Changes discarded');
+  });
+
+  // Download the page with the current content baked in, ready to upload to GitHub.
+  $('#downloadBtn').addEventListener('click', () => {
+    const doc = document.documentElement.cloneNode(true);
+    const json = JSON.stringify(data, null, 2).replace(/</g, '\\u003c');
+    doc.querySelector('#itinerary-data').textContent = '\n' + json + '\n';
+    doc.querySelectorAll('[data-field]').forEach(el => { el.innerHTML = ''; el.removeAttribute('contenteditable'); el.removeAttribute('data-edit'); });
+    doc.querySelector('#stops').innerHTML = '';
+    doc.querySelector('#packList').innerHTML = '';
+    doc.querySelector('#reasonList').innerHTML = '';
+    doc.querySelector('#dayCount').textContent = '0';
+    doc.querySelector('#letterSec').classList.remove('open');
+    doc.querySelector('#envelope').setAttribute('aria-expanded', 'false');
+    doc.querySelectorAll('.burst').forEach(el => el.remove());
+    doc.removeAttribute('data-theme');
+    doc.querySelector('body').removeAttribute('class');
+    doc.querySelector('#toast').classList.remove('show');
+    doc.querySelector('#editBtn').setAttribute('aria-pressed', 'false');
+    doc.querySelector('#themeIcon').className = 'fa-solid fa-moon';
+    doc.querySelector('title').textContent = 'Our Anniversary Itinerary ❤️';
+    const blob = new Blob(['<!DOCTYPE html>\n' + doc.outerHTML], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    toast('Downloaded index.html — upload it to GitHub');
+  });
+
+  // ---------- Theme ----------
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  const isDark = () => {
+    const t = document.documentElement.getAttribute('data-theme');
+    return t ? t === 'dark' : mq.matches;
+  };
+  const syncIcon = () => { $('#themeIcon').className = 'fa-solid ' + (isDark() ? 'fa-sun' : 'fa-moon'); };
+  const savedTheme = store.get(THEME_KEY);
+  if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.setAttribute('data-theme', savedTheme);
+  syncIcon();
+  mq.addEventListener && mq.addEventListener('change', syncIcon);
+  $('#themeBtn').addEventListener('click', () => {
+    const next = isDark() ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    store.set(THEME_KEY, next);
+    syncIcon();
+  });
+
+  // ---------- Share ----------
+  $('#shareBtn').addEventListener('click', async () => {
+    const url = location.href.split('#')[0];
+    if (navigator.share) {
+      try { await navigator.share({ title: document.title, url }); return; } catch (e) { if (e.name === 'AbortError') return; }
+    }
+    try { await navigator.clipboard.writeText(url); }
+    catch (e) {
+      const t = document.createElement('textarea'); t.value = url; document.body.appendChild(t); t.select();
+      document.execCommand('copy'); t.remove();
+    }
+    toast('Link copied! Share it with her ❤️');
+  });
+
+  // ---------- Toast ----------
+  let toastTimer;
+  function toast(msg) {
+    $('#toastMsg').textContent = msg;
+    $('#toast').classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => $('#toast').classList.remove('show'), 3000);
+  }
+
+  renderAll();
+  if (location.hash === '#edit') setEditing(true);
+})();
+</script>
+
+
+</body></html>
